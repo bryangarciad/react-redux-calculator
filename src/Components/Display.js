@@ -1,11 +1,24 @@
 import React, { Fragment } from "react";
 import {connect} from "react-redux"
+import './Display.css'
+import KeyBoard from './KeyBoard'
 
 function Display(props){
     return(
         <Fragment>
-        <h2>{props.history}</h2>
-        <h1>{props.res}</h1>
+            <section className="Wrapper">
+                <div className="CalcContainer" >
+                    <div className="displayContainer">
+                        <text style={{textAlign:'center', height: '10px', fontSize:'1em', margin: '0px',whiteSpace: "pre-wrap"}}>{props.res}</text>
+                    </div>
+                    <div className="keyboardContainer">
+                        <KeyBoard></KeyBoard>
+                    </div>
+                </div>
+                <aside className="hisContainer">
+                    <h3>{props.his}</h3>                    
+                </aside> 
+            </section>   
         </Fragment>
     )
 }
@@ -13,7 +26,8 @@ function Display(props){
 const mapStateToProps =  state => {
     return{
         res: state.Result,
-        history: state.history
+        previusResult: state.previusResult,
+        his: state.history
     }
 }
 

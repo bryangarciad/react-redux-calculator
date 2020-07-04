@@ -36,3 +36,9 @@
     transform: rotate(360deg);
   }
 }
+
+.display{
+  width: 100vw;
+  height: 25vh;
+  background-color: aqua;
+}

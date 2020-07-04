@@ -1,10 +1,11 @@
 import React from "react";
 import {connect} from "react-redux"
 import {doCalc, updateOperator} from '../Actions/actionIndex'
+import './Button.css'
 
 function CalcButton(props){
     return(
-    <button onClick={props.operator == "noSet" ? props.doCalc : props.updateOperator}>{props.Value}</button>
+    <button className="button" onClick={props.operator == "noSet" ? props.doCalc : props.updateOperator}>{props.Value}</button>
     )
 }
 

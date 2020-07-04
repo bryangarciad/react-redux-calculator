@@ -14,7 +14,7 @@ function App() {
   return (
     <Provider store={store}>
       <Display></Display>
-      <KeyBoard></KeyBoard>
+      {/* <KeyBoard></KeyBoard> */}
     </Provider>
   );
 }
