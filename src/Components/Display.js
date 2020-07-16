@@ -2,6 +2,8 @@ import React, { Fragment } from "react";
 import {connect} from "react-redux"
 import './Display.css'
 import KeyBoard from './KeyBoard'
+import CalcHistory from "./CalcHistory";
+
 
 function Display(props){
     return(
@@ -9,14 +11,15 @@ function Display(props){
             <section className="Wrapper">
                 <div className="CalcContainer" >
                     <div className="displayContainer">
-                        <text style={{textAlign:'center', height: '10px', fontSize:'1em', margin: '0px',whiteSpace: "pre-wrap"}}>{props.res}</text>
+                        <text style={{textAlign:'center', height: '10px', fontSize:'1em', margin: '0px'}}>{props.res}</text>
                     </div>
                     <div className="keyboardContainer">
                         <KeyBoard></KeyBoard>
                     </div>
                 </div>
                 <aside className="hisContainer">
-                    <h3>{props.his}</h3>                    
+                    {/* <h3>{props.his}</h3>   */}
+                    <CalcHistory></CalcHistory>                  
                 </aside> 
             </section>   
         </Fragment>

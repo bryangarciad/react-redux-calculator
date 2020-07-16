@@ -17,6 +17,7 @@ function KeyBoard(props){
             <CalcButton operator={"noSet"} Value={"0"}></CalcButton>
             <CalcButton operator={"+"} Value={"+"}></CalcButton>
             <CalcButton operator={"-"} Value={"-"}></CalcButton>
+            <CalcButton operator={"="} Value={"="}></CalcButton>
 
         </Fragment>
     )

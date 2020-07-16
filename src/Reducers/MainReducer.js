@@ -29,12 +29,23 @@ const MainReducer = (state = initialState, action) => {
             if(state.previusResult != 0){
                 switch(state.operator){
                     case "+":
-                        return{
-                            ...state,
-                            operator: action.payload,
-                            previusResult: +state.Result + +state.previusResult,
-                            Result: +state.Result + +state.previusResult,
-                            history: state.history + " = " + +(+state.Result + +state.previusResult) + '<br/>' + action.payload + " " 
+                        if(action.payload != "="){
+                            return{
+                                ...state,
+                                operator: action.payload,
+                                previusResult: +state.Result + +state.previusResult,
+                                Result: +state.Result + +state.previusResult,
+                                history: state.history + " = " + +(+state.Result + +state.previusResult) + '*' + +(+state.Result + +state.previusResult) + action.payload + " " 
+                            }
+                        }
+                        else{
+                            return{
+                                ...state,
+                                operator: action.payload,
+                                previusResult: +state.Result + +state.previusResult,
+                                Result: +state.Result + +state.previusResult,
+                                history: state.history + " = " + +(+state.Result + +state.previusResult) + '*' + +(+state.Result + +state.previusResult) 
+                            }
                         }
                     case "-":
                         return{
@@ -42,8 +53,15 @@ const MainReducer = (state = initialState, action) => {
                             operator: action.payload,
                             previusResult:  +state.previusResult - +state.Result,
                             Result: +state.previusResult - +state.Result,
-                            history: state.history + " = " + +(+state.previusResult - +state.Result) + "\n " +action.payload+ " " 
+                            history: state.history + " = " + +(+state.previusResult - +state.Result) + "*" + +(+state.previusResult - +state.Result) +action.payload+ " " 
                         }
+                    case "=":
+                        return{
+                            ...state,
+                            operator: action.payload
+                        }
+                    default:
+                        return state
                 }
             }
             else{
@@ -59,5 +77,4 @@ const MainReducer = (state = initialState, action) => {
             return state
     }
 }
-
 export default MainReducer
