@@ -7,7 +7,7 @@ function CalcHistory(props){
         <li key= {hisArray}>{hisArray}</li>
     );
     return(
-        <ul style={{listStyle: 'none'}}>
+        <ul style={{listStyle: 'none', padding:"5px", margin: "0px"}}>
             {listItems}
         </ul>
     )

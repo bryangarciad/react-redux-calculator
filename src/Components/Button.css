@@ -1,5 +1,18 @@
+@font-face {
+    font-family: calcFont;
+    src: url('../Calculator.ttf');
+  }
+
 .button{
     width: 25%;
     height: 25%;
-    font-size: 3em;
+    font-size: 7vw;
+    margin: 0px;
+    border-radius: 10px;
+    font-family: "calcFont";
+}
+
+.button:hover{
+    color: white;
+    background-color: blue;
 }

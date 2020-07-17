@@ -25,7 +25,7 @@ const MainReducer = (state = initialState, action) => {
             }
             
         case "UPDATE_OPERATOR":
-            if(state.previusResult !== 0){
+            if(state.operator !== "noSet"){
                 switch(state.operator){
                     case "+":
                         if(action.payload !== "="){
@@ -48,12 +48,24 @@ const MainReducer = (state = initialState, action) => {
                             }
                         }
                     case "-":
-                        return{
-                            ...state,
-                            operator: action.payload,
-                            previusResult:  +state.previusResult - +state.Result,
-                            Result: +state.previusResult - +state.Result,
-                            history: state.history + " = " + +(+state.previusResult - +state.Result) + "*" + +(+state.previusResult - +state.Result) +action.payload+ " " 
+                        if(action.payload !== "="){
+                            return{
+                                ...state,
+                                operator: action.payload,
+                                previusResult:  parseInt(state.previusResult) - parseInt(state.Result),
+                                Result:   parseInt(state.previusResult) - parseInt(state.Result),
+                                history: state.history + " = " + +(+state.previusResult - +state.Result) + "*" + +(+state.previusResult - +state.Result) +action.payload+ " " 
+                            }
+                        }
+                        else{
+                            return{
+                                ...state,
+                                operator: action.payload,
+                                previusResult: parseInt(state.previusResult) - parseInt(state.Result),
+                                Result:  parseInt(state.previusResult) - parseInt(state.Result),
+                                history: state.history + " = " + (parseInt(state.previusResult) - parseInt(state.Result)) + '*'  + (parseInt(state.previusResult) - parseInt(state.Result))
+
+                            }
                         }
                     case "=":
                         return{

@@ -11,14 +11,13 @@ function Display(props){
             <section className="Wrapper">
                 <div className="CalcContainer" >
                     <div className="displayContainer">
-                        <h1 style={{textAlign:'center', height: '10px', fontSize:'1em', margin: '0px'}}>{props.res}</h1>
+                        <h1 style={{textAlign:'right', height: '10px', fontSize:'1em', margin: '0px', paddingRight:"50px",fontWeight:"lighter"}}>{props.res}</h1>
                     </div>
                     <div className="keyboardContainer">
                         <KeyBoard></KeyBoard>
                     </div>
                 </div>
                 <aside className="hisContainer">
-                    {/* <h3>{props.his}</h3>   */}
                     <CalcHistory></CalcHistory>                  
                 </aside> 
             </section>   
