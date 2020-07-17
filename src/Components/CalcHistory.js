@@ -4,7 +4,7 @@ import {connect} from "react-redux"
 function CalcHistory(props){
     const hisArray = props.his.split("*");
     const listItems = hisArray.map((hisArray)=>
-        <li>{hisArray}</li>
+        <li key= {hisArray}>{hisArray}</li>
     );
     return(
         <ul style={{listStyle: 'none'}}>

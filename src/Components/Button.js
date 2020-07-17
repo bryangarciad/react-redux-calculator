@@ -5,7 +5,7 @@ import './Button.css'
 
 function CalcButton(props){
     return(
-    <button className="button" onClick={props.operator == "noSet" ? props.doCalc : props.updateOperator}>{props.Value}</button>
+    <button className="button" onClick={props.operator === "noSet" ? props.doCalc : props.updateOperator}>{props.Value}</button>
     )
 }
 

@@ -11,7 +11,7 @@ function Display(props){
             <section className="Wrapper">
                 <div className="CalcContainer" >
                     <div className="displayContainer">
-                        <text style={{textAlign:'center', height: '10px', fontSize:'1em', margin: '0px'}}>{props.res}</text>
+                        <h1 style={{textAlign:'center', height: '10px', fontSize:'1em', margin: '0px'}}>{props.res}</h1>
                     </div>
                     <div className="keyboardContainer">
                         <KeyBoard></KeyBoard>
