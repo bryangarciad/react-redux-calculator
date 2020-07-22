@@ -12,3 +12,9 @@ export const updateOperator = operator => {
     }
 }
 
+export const ClearData  = () =>{
+    return{
+        type: "CLEAR"
+    }
+}
+

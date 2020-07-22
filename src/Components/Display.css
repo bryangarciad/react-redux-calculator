@@ -38,9 +38,10 @@
 }
 
 .hisContainer{
-    background-color: aqua;
+    background-color: #3e424B;
     width: 30%;
     height: 100%;
     font-family: calcFont;
     font-size: 3vw;
+    color: white;
 }

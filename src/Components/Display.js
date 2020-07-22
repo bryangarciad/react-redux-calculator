@@ -3,7 +3,7 @@ import {connect} from "react-redux"
 import './Display.css'
 import KeyBoard from './KeyBoard'
 import CalcHistory from "./CalcHistory";
-
+import ClearBtn from "./Clear"
 
 function Display(props){
     return(
@@ -21,6 +21,7 @@ function Display(props){
                     <CalcHistory></CalcHistory>                  
                 </aside> 
             </section>   
+            <ClearBtn/>
         </Fragment>
     )
 }

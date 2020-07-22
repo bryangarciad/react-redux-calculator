@@ -1,0 +1,11 @@
+.FixedButton{
+    position: fixed;
+    right: 2%;
+    bottom: 2%;
+    border-radius: 100%;
+    color: white;
+    background-color: teal;
+    border-color: teal;
+    width: 3%;
+    height: 6%;
+}

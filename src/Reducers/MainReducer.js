@@ -34,7 +34,7 @@ const MainReducer = (state = initialState, action) => {
                                 operator: action.payload,
                                 previusResult: +state.Result + +state.previusResult,
                                 Result: +state.Result + +state.previusResult,
-                                history: state.history + " = " + +(+state.Result + +state.previusResult) + '*' + +(+state.Result + +state.previusResult) +" "+ action.payload + " " 
+                                history: state.history + " = " + +(+state.Result + +state.previusResult) + '#' + +(+state.Result + +state.previusResult) +" "+ action.payload + " " 
                             }
                         }
                         else{
@@ -43,7 +43,7 @@ const MainReducer = (state = initialState, action) => {
                                 operator: action.payload,
                                 previusResult: +state.Result + +state.previusResult,
                                 Result: +state.Result + +state.previusResult,
-                                history: state.history + " = " + +(+state.Result + +state.previusResult) + '*'  + +(+state.Result + +state.previusResult)
+                                history: state.history + " = " + +(+state.Result + +state.previusResult) + '#'  + +(+state.Result + +state.previusResult)
 
                             }
                         }
@@ -52,18 +52,57 @@ const MainReducer = (state = initialState, action) => {
                             return{
                                 ...state,
                                 operator: action.payload,
-                                previusResult:  parseInt(state.previusResult) - parseInt(state.Result),
-                                Result:   parseInt(state.previusResult) - parseInt(state.Result),
-                                history: state.history + " = " + +(+state.previusResult - +state.Result) + "*" + +(+state.previusResult - +state.Result) +action.payload+ " " 
+                                previusResult:  parseFloat(state.previusResult) - parseFloat(state.Result),
+                                Result:   parseFloat(state.previusResult) - parseFloat(state.Result),
+                                history: state.history + " = " + +(+state.previusResult - +state.Result) + "#" + +(+state.previusResult - +state.Result) +action.payload+ " " 
                             }
                         }
                         else{
                             return{
                                 ...state,
                                 operator: action.payload,
-                                previusResult: parseInt(state.previusResult) - parseInt(state.Result),
-                                Result:  parseInt(state.previusResult) - parseInt(state.Result),
-                                history: state.history + " = " + (parseInt(state.previusResult) - parseInt(state.Result)) + '*'  + (parseInt(state.previusResult) - parseInt(state.Result))
+                                previusResult: parseFloat(state.previusResult) - parseFloat(state.Result),
+                                Result:  parseFloat(state.previusResult) - parseFloat(state.Result),
+                                history: state.history + " = " + (parseFloat(state.previusResult) - parseFloat(state.Result)) + '#'  + (parseFloat(state.previusResult) - parseFloat(state.Result))
+
+                            }
+                        }
+                        case "/":
+                            if(action.payload !== "="){
+                                return{
+                                    ...state,
+                                    operator: action.payload,
+                                    previusResult:  parseFloat(state.previusResult) / parseFloat(state.Result),
+                                    Result:   parseFloat(state.previusResult) / parseFloat(state.Result),
+                                    history: state.history + " = " + +(+state.previusResult / +state.Result) + "#" + +(+state.previusResult / +state.Result) +action.payload+ " "
+                                }
+                            }
+                            else{
+                                return{
+                                    ...state,
+                                    operator: action.payload,
+                                    previusResult: parseFloat(state.previusResult) / parseFloat(state.Result),
+                                    Result:  parseFloat(state.previusResult) / parseFloat(state.Result),
+                                    history: state.history + " = " + (parseFloat(state.previusResult) / parseFloat(state.Result)) + '#'  + (parseFloat(state.previusResult) / parseFloat(state.Result))
+                                }
+                            }
+                        case "*":
+                        if(action.payload !== "="){
+                            return{
+                                ...state,
+                                operator: action.payload,
+                                previusResult:  parseFloat(state.previusResult) *  parseFloat(state.Result),
+                                Result:   parseFloat(state.previusResult) * parseFloat(state.Result),
+                                history: state.history + " = " + +(+state.previusResult * +state.Result) + "#" + +(+state.previusResult * +state.Result) +action.payload+ " " 
+                            }
+                        }
+                        else{
+                            return{
+                                ...state,
+                                operator: action.payload,
+                                previusResult: parseFloat(state.previusResult) * parseFloat(state.Result),
+                                Result:  parseFloat(state.previusResult) * parseFloat(state.Result),
+                                history: state.history + " = " + (parseFloat(state.previusResult) * parseFloat(state.Result)) + '#'  + (parseFloat(state.previusResult) * parseFloat(state.Result))
 
                             }
                         }
@@ -85,6 +124,14 @@ const MainReducer = (state = initialState, action) => {
                     Result: "",
                     history: state.history + action.payload
                 }
+            }
+
+        case "CLEAR":
+            return{
+                Result: "",
+                operator: "noSet",
+                previusResult: 0,
+                history: ""
             }
         default:
             return state

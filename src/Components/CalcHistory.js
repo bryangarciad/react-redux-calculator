@@ -2,7 +2,7 @@ import React from 'react'
 import {connect} from "react-redux"
 
 function CalcHistory(props){
-    const hisArray = props.his.split("*");
+    const hisArray = props.his.split("#");
     const listItems = hisArray.map((hisArray)=>
         <li key= {hisArray}>{hisArray}</li>
     );
