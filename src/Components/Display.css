@@ -27,7 +27,18 @@
 .displayContainer h2{
     margin: 0px;
 }
-
+.displayMain{
+    /* display: flex;
+    flex-direction: column;
+    justify-content: center; */
+    text-align: right;
+    height: 100%; 
+    font-Size: 7vw;
+    margin: 0px; 
+    padding-Right: 3%;
+    font-Weight: lighter;
+    justify-Content: center;
+}
 .keyboardContainer{
     width: 100%;
     height: 85%;
